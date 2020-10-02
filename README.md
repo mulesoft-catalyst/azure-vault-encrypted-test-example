@@ -1,0 +1,1 @@
+# azure-vault-encrypted-test-example
