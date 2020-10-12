@@ -5,7 +5,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/azure-vault-property-provider http://www.mulesoft.org/schema/mule/azure-vault-property-provider/current/mule-azure-vault-property-provider.xsd">
 	<azure-vault-property-provider:config name="Azure_Vault_Property_Provider_Config" doc:name="Azure Vault Property Provider Config" doc:id="0ff2a736-0c54-40d4-8245-229cb29f2976" >
-		<azure-vault-property-provider:azure-vault applicationClientId="yP/mEInKQX4yijteoek7C0fqoe6fHyyi3L8WohzHn0JPtDgvyfKrFWtSbrqI2dauNVI/gsbK3X4CtXbz4jMMTw==" applicationSecretKey="i4OGQHfiUflm5WQbXmOKuJsAk2nJL0HLtYv/X7vQYGgf9dK1RGNNSQHlfxnhp1l9toPtEVQhIWuFeCpM89NgZg==" azureVaultName="test-mule-keyvault" encryptKey="UWVUaFdtWnEzdDZ3OXokQyZGKUpATmNSZlVqWG4ycjU=" />
+		<azure-vault-property-provider:azure-vault applicationClientId="yP/mEInKQX4yijteoek7C0fqoe6fHyyi3L8WohzHn0JPtDgvyfKrFWtSbrqI2dauNVI/gsbK3X4CtXbz4jMMTw==" applicationSecretKey="i4OGQHfiUflm5WQbXmOKuJsAk2nJL0HLtYv/X7vQYGgf9dK1RGNNSQHlfxnhp1l9toPtEVQhIWuFeCpM89NgZg==" azureVaultName="test-mule-keyvault" encryptKey="EncodedSecretKey" />
 	</azure-vault-property-provider:config>
 	<flow name="test-azure-encryption-propertiesFlow" doc:id="c1a46c0b-eb82-4cb3-ab7b-56e997c580fc" >
 		<scheduler doc:name="Scheduler" doc:id="7edad8c7-b3c7-4d67-9295-5a532495cf81" >
