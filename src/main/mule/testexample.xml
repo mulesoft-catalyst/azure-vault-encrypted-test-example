@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:sap="http://www.mulesoft.org/schema/mule/sap" xmlns:azure-vault-property-provider="http://www.mulesoft.org/schema/mule/azure-vault-property-provider"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/azure-vault-property-provider http://www.mulesoft.org/schema/mule/azure-vault-property-provider/current/mule-azure-vault-property-provider.xsd
+http://www.mulesoft.org/schema/mule/sap http://www.mulesoft.org/schema/mule/sap/current/mule-sap.xsd">
+	<azure-vault-property-provider:config name="Azure_Vault_Property_Provider_Config" doc:name="Azure Vault Property Provider Config" doc:id="ba6bbda7-4f5c-4602-9904-beb7670a336e" >
+		<azure-vault-property-provider:azure-vault applicationClientId="${azure.clientid}" applicationSecretKey="${azure.clientsecret}" azureVaultName="${azure.keyvault}" encryptKey="${azure.encryptkey}" localfile="${azure.localfile}" localPropertyProvider="${azure.bypassflag}"/>
+	</azure-vault-property-provider:config>
+	<configuration-properties doc:name="Configuration properties" doc:id="56ba3ba7-8fb3-4696-9f3a-4a1220eba492" file="local.properties" />
+	<flow name="testexampleFlow" doc:id="1a4cf9ec-28eb-47d4-a658-35897df28954" >
+		<scheduler doc:name="Scheduler" doc:id="454a9a99-1f56-464d-ac9a-40aa491870fd" >
+			<scheduling-strategy >
+				<fixed-frequency />
+			</scheduling-strategy>
+		</scheduler>
+		<set-variable value="#['azure-vault::' ++ 'testKey']" doc:name="Set Variable" doc:id="3a3497dc-39d7-408f-b1cc-22dab20e4882" variableName="key"/>
+		<logger level="INFO" doc:name="ReferenceViaDynamicVariable" doc:id="c10741eb-9a28-47e1-a964-e084dca46f92" message="#[p(vars.key)]"/>
+		<logger level="INFO" doc:name="DifferentWayToReference" doc:id="a26deeed-3d10-4f92-aaaa-c17872a103fc" message="------------ ${azure-vault::testKey}"/>
+	</flow>
+</mule>
